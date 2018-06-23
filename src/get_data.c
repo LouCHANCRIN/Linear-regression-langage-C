@@ -25,6 +25,7 @@ static void		test_theta(t_data data)
 			std = ft_read_std('\n');
 			if (ft_strcmp(std, "exit") == 0)
 			{
+				free(std);
 				free(user_data);
 				return ;
 			}
