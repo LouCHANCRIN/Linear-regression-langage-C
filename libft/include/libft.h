@@ -6,7 +6,7 @@
 /*   By: lchancri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 10:50:39 by lchancri          #+#    #+#             */
-/*   Updated: 2018/05/21 17:54:48 by lchancri         ###   ########.fr       */
+/*   Updated: 2018/06/23 20:06:13 by lchancri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				*ft_itoa(int n);
 char				*ft_strrev(char *str);
+char				*ft_read_std(char stop_read);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_uitoabase(unsigned long long nb, char *base);
 char				*ft_itoabase(long long nb, char *base);

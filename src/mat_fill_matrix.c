@@ -13,7 +13,7 @@ static t_data	fill_matrix(char *str, t_data data, char separator)
 	data.data[1][0] = atof(&str[a]);
 	while (str[a] != '\0')
 	{
-		if (str[a] == separator)
+		if (str[a] == separator && str[a + 1] != '\0')
 		{
 			if (c == data.col)
 				data.result[l] = atof(&str[a + 1]);
@@ -38,13 +38,28 @@ t_data			mat_fill_matrix(t_data data, char *str, char separator)
 {
 	int		a;
 	int		c;
-	int		l;
+	int		n;
 
 	a = 0;
 	c = 0;
-	l = 0;
-	if (!(data.data = (float**)malloc(sizeof(float*) * data.col)))
+	if (!(data.data = (float**)malloc(sizeof(float*) * (data.col))))
 		return (data);
+	if (!(data.name_value = (char**)malloc(sizeof(char*) * (data.col))))
+		return (data);
+	n = ft_strclen(str, '\n');
+	while (str[c] != '\n' && str[a] != '\0')
+	{
+		if (c == 0 || (str[c] == separator && (c = c + 1)))
+		{
+			if (ft_strclen(&str[c], separator) + c > n)
+				data.name_value[a] = ft_strccpy(&str[c], '\n', 0);
+			else
+				data.name_value[a] = ft_strccpy(&str[c], separator, 0);
+			a++;
+		}
+		c++;
+	}
+	c = 0;
 	while (c < data.col)
 	{
 		if (!(data.data[c] = (float*)malloc(sizeof(float) * data.line)))

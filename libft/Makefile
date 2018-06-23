@@ -6,7 +6,7 @@
 #    By: lchancri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 16:01:58 by lchancri          #+#    #+#              #
-#    Updated: 2018/05/21 17:52:34 by lchancri         ###   ########.fr        #
+#    Updated: 2018/06/23 20:06:28 by lchancri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ C_FILE		=	ft_bzero.c\
 				ft_ignore_space_tab.c\
 				ft_strclen.c\
 				ft_strnequ.c\
+				ft_read_std.c\
 				ft_countcword.c\
 				ft_memchr.c\
 				ft_strclr.c\

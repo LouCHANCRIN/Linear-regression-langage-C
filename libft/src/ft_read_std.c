@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strccpy.c                                       :+:      :+:    :+:   */
+/*   ft_read_std.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchancri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/14 23:19:19 by lchancri          #+#    #+#             */
-/*   Updated: 2018/06/23 19:09:19 by lchancri         ###   ########.fr       */
+/*   Created: 2018/06/23 20:02:04 by lchancri          #+#    #+#             */
+/*   Updated: 2018/06/23 20:14:39 by lchancri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-char		*ft_strccpy(char *str, char c, int last_char)
+char		*ft_read_std(char stop_read)
 {
 	int		a;
-	char	*tmp;
+	char	buf[2];
+	char	*str;
 
-	a = 0;
-	while (str[a] != c && str[a] != '\0')
-		a++;
-	if (!(tmp = (char*)malloc(sizeof(char) * (a + 1 + last_char))))
+	if (!(str = (char*)malloc(sizeof(char))))
 		return (NULL);
-	a = 0;
-	while (str[a] != c && str[a] != '\0')
+	str[0] = '\0';
+	while ((a = read(0, buf, 1)) > 0 && buf[a - 1] != stop_read)
 	{
-		tmp[a] = str[a];
-		a++;
+		buf[a] = '\0';
+		str = ft_strjoinfree(str, buf);
 	}
-	tmp[a] = str[a];
-	tmp[a + last_char] = '\0';
-	return (tmp);
+	return (str);
 }

@@ -7,6 +7,7 @@
 
 typedef struct	s_data
 {
+	char		**name_value;	
 	float		**data;
 	float		*result;
 	float		*theta;
@@ -22,6 +23,7 @@ typedef struct	s_data
 
 int				free_data(t_data data);
 void			mat_print_data(t_data data);
+t_data			init_data(void);
 t_data			linear_reg(t_data data);
 t_data			scale_data(t_data data);
 t_data			scale_theta(t_data data);
